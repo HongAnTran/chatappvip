@@ -4,7 +4,7 @@ import UserInfo  from './UserInfo'
 import RoomList  from './RoomList'
 import styled from 'styled-components'
 const SidebarStyles =  styled.div`
-        background:#FF6699;
+        background:#1890ff;
       
         height:100vh;
 `;

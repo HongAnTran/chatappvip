@@ -1,8 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../Filebase/config";
+import { auth ,db} from "../Filebase/config";
 import { useState } from "react";
 import { Spin } from "antd";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 export const AuthContext = React.createContext();
 
@@ -15,20 +16,46 @@ function AuthProvier({ children }) {
 
   React.useEffect(() => {
    auth.onAuthStateChanged((user) => {
-        if (user) {
-        const { displayName, uid, email, photoURL} = user;
-        setUser({
-          displayName,
-          uid,
-          email,
-          photoURL,
-          
-        });
-        setLoading(false);
-        history("/");
-      }else{
-        setLoading(false);
+   
 
+     if (user) {
+          const { displayName, uid, email, photoURL} = user;
+          
+            if(user.providerData[0].providerId==='facebook.com'){
+              
+              setUser({
+                displayName,
+                uid,
+                email,
+                photoURL,
+                
+              })
+            }else{
+              const q = query(collection(db, "users"), where("uid", "==", uid));
+              const querySnapshot =  getDocs(q);
+      
+              querySnapshot.then(docs => {
+                docs.forEach(doc => {
+                    const {displayName,uid,email,photoURL} = doc.data();
+                    setUser({
+                      displayName,
+                      email,
+                      photoURL,
+                      uid,
+                     });
+                     
+                     
+                    })
+                  })
+            }
+         
+
+          setLoading(false);
+          history("/");
+    
+   
+      } else{
+        setLoading(false);
           history("/login");
       }
     });
@@ -41,7 +68,7 @@ function AuthProvier({ children }) {
 
 
   return (
-    <AuthContext.Provider value={{ user }}>
+    <AuthContext.Provider value={{ user,setUser }}>
         
         {loading ? <Spin></Spin> :children}
         

@@ -24,13 +24,21 @@ const PanelStyle = styled(Panel)`
 
 const LinkStyle = styled(Typography.Link)`
 
+
 &&&{
     display:block;
-            margin-bottom:5px;
-             color:#FFCC33;
+            margin-bottom:12px;
+             color:#fff;
              font-weight: bold;
-             border-bottom: 1px solid #fff;
+             border: 1px solid #fff;
+
+             
+            
     }
+    :hover{
+        color:#000 !important;
+        }
+    
 `
 
 export default function RoomList() {
@@ -47,7 +55,7 @@ SetisAddRoomVisible(true)
                {
                     rooms.map((room) =>{
                         return (
-                            <LinkStyle key={room.id}
+                            <LinkStyle key={room.id} 
                                 onClick={() =>setSelectedRoomId(room.id)}
                             >{room.name}</LinkStyle>
                         )

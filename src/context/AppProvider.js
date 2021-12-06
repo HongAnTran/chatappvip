@@ -5,6 +5,8 @@ import {AuthContext} from "./AuthProvier"
 export const AppContext = React.createContext()
 
 export default function AppProvider({children}) {
+             const [onSignUp , setOnSignUp] = React.useState(false)
+             const [onLogin , setOnLogin] = React.useState(false)
         const [isAddRoomVisible,SetisAddRoomVisible] = React.useState(false)
         const [selectedRoomId,setSelectedRoomId] = React.useState('')
         const [isInviteMemberVisible, setIsInviteMemberVisible] = React.useState(false);
@@ -52,8 +54,8 @@ export default function AppProvider({children}) {
         <AppContext.Provider value={{
             rooms , isAddRoomVisible,SetisAddRoomVisible,selectedRoomId,
             setSelectedRoomId,selectedRoom,members,
-            isInviteMemberVisible, setIsInviteMemberVisible
-            
+            isInviteMemberVisible, setIsInviteMemberVisible,
+            onSignUp,setOnSignUp,onLogin,setOnLogin,
             }}>
                 {children}
         </AppContext.Provider>

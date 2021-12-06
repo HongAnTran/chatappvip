@@ -4,6 +4,8 @@ import AddRoomModal from './component/Modals/AddRoomModal';
 import InviteMemberModal from './component/Modals/InviteMemberModal';
 import AuthProvier from './context/AuthProvier';
 import AppProvider from './context/AppProvider';
+import SignUp from './component/login/SignUp';
+import LoginWithPass from './component/login/LoginWithPass';
 import './App.css';
 
 import {
@@ -23,6 +25,9 @@ function App() {
       </Routes>
     <InviteMemberModal/>
       <AddRoomModal/>
+      <SignUp/>
+    <LoginWithPass/>
+
       </AppProvider>
     </AuthProvier>
     

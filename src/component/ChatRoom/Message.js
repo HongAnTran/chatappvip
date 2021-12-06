@@ -28,7 +28,7 @@ const WrapperStyled = styled.div`
         }
 
         .messageStyledchat{
-          background-color: 	#FF66CC;
+          background-color: 	#1890ff;
             border-radius: 12px;
             padding:6px;   
         }
