@@ -5,12 +5,12 @@ import { Row ,Col} from 'antd'
 function ChatRoom() {
     return (
         <Row>
-            <Col span={6}>
+            <Col xs={8} sm={8} md={6} lg={6} xl={6}>
             
            <SideBar />
             </Col> 
 
-            <Col span={18}>
+            <Col xs={16} sm={16} md={18} lg={18} xl={18}>
            <ChatWindow />
             
              </ Col> 

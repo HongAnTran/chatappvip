@@ -12,10 +12,20 @@ const WrapperStyled = styled.div`
         .usermain{
             display:flex;
             align-items:center;
+            
         }
         .username{
             color:white;
             margin-left:10px;
+        }
+
+        @media (max-width: 768px){
+            flex-direction: column;
+              
+            .username{
+                font-weight: bold;
+               
+            }
         }
 
 `

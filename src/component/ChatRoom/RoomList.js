@@ -18,6 +18,12 @@ const PanelStyle = styled(Panel)`
             color:  white;
             padding: 0;
      }
+
+     @media (max-width: 768px){
+            .add-room{
+                transform: translateX(-22px);
+            }
+     }
    
  }
 `

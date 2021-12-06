@@ -39,7 +39,7 @@ const fbProvider = new FacebookAuthProvider()
     return (
         <div>
          <Row justify="center" style={{height:800}}>
-            <Col span={8}>
+            <Col sm={14} md={12} lg={10} xl={10} xs={12}>
                 <Title style={{textAlign: 'center'}}>Login</Title>
                 <Button style={{width :'100%',marginBottom:5}}
                     onClick={handleLogin}
